@@ -1,6 +1,10 @@
 #include<stdio.h>
 int main(){
-    int i=600;
-    char *p=(char *)&i;
-    printf("%d",*p);
+    char str[]="hello world";
+    int i;
+    for ( i = 0; str[i]; i++)
+    {
+        printf("%c",str[i]);
+    }
+    
 }
