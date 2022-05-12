@@ -89,7 +89,20 @@ void reverse(struct Node **head_ref)
     *head_ref = prev;
 }
 
-void sort(struct Node **head_ref){
+void sort(struct Node *head_ref){
+    struct Node *temp=head_ref,*temp2=head_ref,*min=NULL;
+    struct Node *head=head_ref;
+    while (temp->next->next!=NULL)
+    {
+        min=temp;
+        while (temp2->next!=NULL)
+        {
+            if(min->data > temp2->data)
+                min=temp2;
+        }
+        swap(head_ref,temp->data,min->data);
+        
+    }
     
 }
 
@@ -112,5 +125,6 @@ int main()
 
     // reverse(&head);
     // printList(&head);
-    sort(&head);
+    sort(head);
+    printList(&head);
 }
