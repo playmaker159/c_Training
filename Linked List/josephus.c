@@ -40,7 +40,6 @@ void printList(struct Node *n)
             temp = temp->next;
         } while (temp != n);
     }
-    // printf("%d", temp->data);
 }
 
 void josephus(struct Node **head_ref)
@@ -52,27 +51,21 @@ void josephus(struct Node **head_ref)
     temp = temp->next;
     del->next = temp->next;
     del = del->next;
-    printf("%d ",temp->next->data);
+    *head_ref = del;
     free(temp);
 }
 
 int main()
 {
     struct Node *head = NULL;
-    // head->next=head;
     int i;
-    for (i = 1; i <= 5; i++)
+    for (i = 1; i <= 100; i++)
     {
         append(&head, i);
     }
-
-    // printList(head);
-    josephus(&head);
-    josephus(&head);
-    josephus(&head);
-    josephus(&head);
-    // printf("\n");
-    // josephus(&head);
-    // printf("\n");
-    // printf("\n");
+    for (i = 1; i < 100; i++)
+    {
+        josephus(&head);
+    }
+    printf("%d ", head->data);
 }
